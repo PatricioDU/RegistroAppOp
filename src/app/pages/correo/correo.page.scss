@@ -1,0 +1,31 @@
+ion-content{
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+    --padding-end: 20px;
+    --padding-start: 20px;
+  }
+
+  div {
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    opacity: 0.8;
+    }
+  
+  .center-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente */
+    height: 100%;           /* Ocupa toda la altura de la pantalla */
+  }
+  
+  .foto-portada {
+    width: 100%;
+  }
+  
+  @media screen and (orientation: landscape) {
+    .center-container {
+      width: 40%;
+      margin: auto;
+    }
+  }

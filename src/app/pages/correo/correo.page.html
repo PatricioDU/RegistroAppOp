@@ -1,0 +1,25 @@
+<ion-content [fullscreen]="true">
+  <div class="center-container">
+    <ion-card class="ion-text-center">
+      <img alt="DUOC" src="../../../assets/duoc/duoc.png" class="foto-portada" />
+      <ion-card-content>
+        <ion-card-header>
+          <ion-card-title class="ion-text-center">Recuperar Contraseña</ion-card-title>
+        </ion-card-header>
+        <ion-input
+          type="email"
+          fill="solid"
+          label="Email"
+          labelPlacement="floating"
+          helperText="Ingresa tu email"
+          errorText="Email Invalido"
+          ngModel
+          email
+        ></ion-input>
+      </ion-card-content>
+      <div>
+        <ion-button size="default">Recuperar Contraseña</ion-button>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>
