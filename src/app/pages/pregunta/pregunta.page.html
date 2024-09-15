@@ -1,13 +1,29 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>pregunta</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">pregunta</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="parent">
+    <div class="div1">
+      <ion-card class="ion-text-center">
+        <img alt="DUOC" src="../../../assets/img/duoc.png" class="foto-portada" />
+        <ion-card-content>
+          <ion-card-header class="titulo">
+            <ion-card-title>Recuperar Contraseña</ion-card-title>
+            <ion-card-subtitle>Paso 2:Responde la pregunta secreta</ion-card-subtitle>
+            <ion-card-subtitle><strong>/nombre/</strong></ion-card-subtitle>
+          </ion-card-header>
+          <ion-item>
+            <ion-input
+                label="¿Nombre de tu mascota?" labelPlacement="floating"
+                placeholder="Ej: Tom"></ion-input>
+          </ion-item>
+        </ion-card-content>
+        <div>
+          <ion-button size="default">Recuperar Contraseña</ion-button>
+        </div>
+      </ion-card>
+      <ion-card-content>
+        <div class="ion-text-center">
+          <a routerLink="/login">Iniciar Sesion</a>
+        </div>
+      </ion-card-content>
+    </div>
+  </div>
 </ion-content>

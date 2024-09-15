@@ -21,6 +21,12 @@ const routes: Routes = [
   },
   {
     path: 'misdatos',loadChildren: () => import('./pages/misdatos/misdatos.module').then(m => m.MisdatosPageModule)
+    path: 'correo',
+    loadChildren: () => import('./pages/correo/correo.module').then( m => m.CorreoPageModule)
+  },
+  {
+    path: 'pregunta',
+    loadChildren: () => import('./pages/pregunta/pregunta.module').then( m => m.PreguntaPageModule)
   }
 ];
 
