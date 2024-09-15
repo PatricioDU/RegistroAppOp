@@ -13,11 +13,13 @@ export class LeerqrPage implements OnInit {
 
   @ViewChild('video') private video!: ElementRef;
   @ViewChild('canvas') private canvas!: ElementRef;
+  @ViewChild('titulo', { read: ElementRef }) itemTitulo!: ElementRef;
 
   public usuario: Usuario;
   public asistencia: Asistencia = new Asistencia();
   public escaneando = false;
   public datosQR: string = '';
+  animationController: any;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router) { 
     this.usuario = new Usuario();
@@ -79,4 +81,16 @@ export class LeerqrPage implements OnInit {
     this.usuario.navegarEnviandousuario(this.router, pagina);
   }
 
+
+
+
+  animarTituloIzqDer() {
+    this.animationController
+    .create()
+    .addElement(this.itemTitulo.nativeElement)
+    .iterations(Infinity) // Repite la animación infinitamente
+    .duration(5000) // Duración de la animación en milisegundos (2 segundos)
+    .fromTo('opacity', 0, 1) // Cambia la opacidad de 0 (invisible) a 1 (visible)
+    .play();
+  }
 }

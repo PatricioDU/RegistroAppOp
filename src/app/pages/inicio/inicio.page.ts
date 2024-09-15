@@ -247,13 +247,12 @@ export class InicioPage implements AfterViewInit {
 
   animarTituloIzqDer() {
     this.animationController
-      .create()
-      .addElement(this.itemTitulo.nativeElement)
-      .iterations(Infinity)
-      .duration(6000)
-      .fromTo('transform', 'translate(0%)', 'translate(100%)')
-      .fromTo('opacity', 0.2, 1)
-      .play();
+    .create()
+    .addElement(this.itemTitulo.nativeElement)
+    .iterations(Infinity) // Repite la animación infinitamente
+    .duration(5000) // Duración de la animación en milisegundos (2 segundos)
+    .fromTo('opacity', 0, 1) // Cambia la opacidad de 0 (invisible) a 1 (visible)
+    .play();
   }
 
   animarShake(nativeElement: any, duration: number) {

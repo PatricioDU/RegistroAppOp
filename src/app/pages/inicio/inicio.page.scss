@@ -11,6 +11,7 @@ ion-input, ion-select {
 }
 
 
+
 // CGV: El siguiente estilo se agregó para que se pueda mostrar siempre el botón
 // del MatDatePicker, puesto que aparecía invisible producto de los colores 
 // asociados al Theme escogido al instalar Angular Material
@@ -95,8 +96,113 @@ main {
   background-size: cover; /* Ajusta la imagen para que cubra todo el contenedor */
   background-position: center; /* Centra la imagen */
   background-repeat: no-repeat; /* No repite la imagen */
-  opacity: 0.8; /* Define el nivel de transparencia, donde 1 es opaco y 0 es completamente transparente */
+  opacity: 1; /* Define el nivel de transparencia, donde 1 es opaco y 0 es completamente transparente */
   height: 100vh; /* Establece la altura, en este caso, 100% del viewport */
   width: 100vw; /* Establece el ancho */
 }
+
+.shadow__btn {
+  padding: 20px 40px;
+  border: none;
+  font-size: 15px;
+  color: #fff;
+  border-radius: 7px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.5s;
+  transition-property: box-shadow;
+}
+
+.shadow__btn {
+  background: rgb(0,140,255);
+  box-shadow: 0 0 25px rgb(0,140,255);
+}
+
+.shadow__btn:hover {
+  box-shadow: 0 0 5px rgb(0,140,255),
+              0 0 25px rgb(0,140,255),
+              0 0 50px rgb(0,140,255),
+              0 0 100px rgb(0,140,255);
+}
+
+
+/* From Uiverse.io by satyamchaudharydev */
+.spinner {
+  --size: 30px;
+  --first-block-clr: #005bba;
+  --second-block-clr: #fed500;
+  --clr: #111;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner::after, .spinner::before {
+  box-sizing: border-box;
+  position: absolute;
+  content: "";
+  width: var(--size);
+  height: var(--size);
+  top: 50%;
+  animation: up 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
+  left: 50%;
+  background: var(--first-block-clr);
+}
+
+.spinner::after {
+  background: var(--second-block-clr);
+  top: calc(50% - var(--size));
+  left: calc(50% - var(--size));
+  animation: down 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
+}
+
+.spinner-text {
+  position: absolute;
+  font-weight: bold;
+  color: var(--clr); /* Usa el color definido en la variable */
+  font-size: 16px; /* Tamaño del texto */
+  z-index: 10; /* Asegúrate de que esté por encima de los bloques */
+  text-align: center;
+}
+
+@keyframes down {
+  0%, 100% {
+    transform: none;
+  }
+
+  25% {
+    transform: translateX(100%);
+  }
+
+  50% {
+    transform: translateX(100%) translateY(100%);
+  }
+
+  75% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes up {
+  0%, 100% {
+    transform: none;
+  }
+
+  25% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(-100%) translateY(-100%);
+  }
+
+  75% {
+    transform: translateY(-100%);
+  }
+}
+
 

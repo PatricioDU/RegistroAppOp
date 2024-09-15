@@ -1,13 +1,16 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title #titulo class="font-size-18">
+  <ion-toolbar color="black">
+    <ion-title #titulo class="font-size-18 ion-text-center">
       Sistema de Asistencia DUOC
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <div class="background-image">
-  <div class="book" height=>
+  <div class="spinner">
+    <span class="spinner-text">Duoc UC</span>
+  </div>
+  <div class="book" >
     <ion-content [fullscreen]="true" #page class="ion-padding-horizontal">
 
       <ion-toolbar class="ion-padding-top">
@@ -22,39 +25,26 @@
       </ion-toolbar>
       
       <ion-item #itemCuenta>
-        <ion-input [(ngModel)]="usuario.cuenta"
-            label="Cuenta" labelPlacement="floating"
-            placeholder="Ej: atorres"></ion-input>
+        <ion-label class="font-size-16">Cuenta</ion-label>
+        <ion-text>{{ usuario.cuenta }}</ion-text>
       </ion-item>
 
       <ion-item #itemNombre>
-        <ion-input [(ngModel)]="usuario.nombre" 
-            label="Nombre" labelPlacement="floating"
-            placeholder="Ej: Ana"></ion-input>
+        <ion-label class="font-size-16">Nombre</ion-label>
+        <ion-text>{{ usuario.nombre }}</ion-text>
       </ion-item>
 
       <ion-item #itemApellido>
-        <ion-input [(ngModel)]="usuario.apellido"
-            label="Apellido" labelPlacement="floating"
-            placeholder="Ej: Torres"></ion-input>
+        <ion-label class="font-size-16">Apellido</ion-label>
+        <ion-text>{{ usuario.apellido }}</ion-text>
       </ion-item>
 
       <ion-item #itemEducacion>
-        <ion-label position="floating" class="font-size-16">Educación</ion-label>
-        <ion-select placeholder="Seleccione nivel" 
-            [(ngModel)]="usuario.nivelEducacional!.id">
-          <ion-select-option *ngFor="let nivelEducacional of listaNivelesEducacionales" 
-            [value]="nivelEducacional.id">
-              {{nivelEducacional.nombre}}
-          </ion-select-option>
-        </ion-select>
+        <ion-label class="font-size-16">Educación</ion-label>
+        <ion-text>{{ usuario.nivelEducacional!.nombre }}</ion-text>
       </ion-item>
 
       <ion-item #itemFechaNacimiento>
-        <!-- CGV: A continuación se configura el MatDatePicker para la fecha de nacimiento 
-          nótese que para que se vea el botón del calendario, se tuvo que modificar el 
-          archivo scss
-        -->
         <table>
           <tr>
             <td class="font-size-12">
@@ -75,66 +65,41 @@
           </tr>
         </table>
       </ion-item>
-
-      <ion-grid class="ion-margin-top">
-        <ion-row class="ion-text-center">
-          <ion-col col-6>
-              <ion-button   shape="round" size="small" style="--background: yellow; --color: black;"  
-                  (click)="limpiarAnimandoDerIzq()"  >
-                Limpiar 
-              </ion-button>  
-          </ion-col>
-          <ion-col col-6>
-            <ion-button shape="round" size="small"
-                (click)="limpiarAnimandoRotacion()">
-              Limpiar Rotación
-            </ion-button>
-          </ion-col>
-        </ion-row>
-        <ion-row class="ion-text-center">
-          <ion-col col-6>
-            <ion-button shape="round" size="small"
-                (click)="animarVueltaDePagina()">
-              Vuelta de hoja
-            </ion-button>
-          </ion-col>
-          <ion-col col-6>
-            <ion-button shape="round" size="small"
-                (click)="mostrarDatosPersona()">
-              Mostrar datos
-            </ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
     </ion-content>
   </div>
 </div>
 <ion-footer>
-  <ion-toolbar color="primary" class="ion-padding-horizontal ion-padding-top ion-padding-bottom">
+  <ion-toolbar color="black" class="ion-padding-horizontal ion-padding-top ion-padding-bottom">
 
-    <ion-button shape="square" (click)="navegar('/inicio')" color="tertiary">
-      <ion-icon slot="start" name="person"></ion-icon>
-      Mis Datos
-    </ion-button>
+    <button class="shadow__btn"  size="small" shape="round" 
+              (click)="navegar('/misdatos')"  >
+              <ion-icon slot="start" name="person"></ion-icon>
+                Mis Datos 
+              </button>  
+
+    &nbsp;&nbsp;&nbsp;
     
-    <ion-button shape="square" (click)="navegar('/inicio')" color="tertiary">
+    <button class="shadow__btn" size="small" shape="round" 
+    (click)="navegar('/inicio')"  >
       <ion-icon slot="start" name="home"></ion-icon>
-      Inicio
-    </ion-button>
+    Inicio
+  </button>
 
     &nbsp;&nbsp;&nbsp;
 
-    <ion-button shape="square" (click)="navegar('/leerqr')" color="tertiary">
+    <button class="shadow__btn" size="small" shape="round" 
+    (click)="navegar('/leerqr')">
       <ion-icon slot="start" name="qr-code"></ion-icon>
-      Asistencia
-    </ion-button>
+    Mis Clases
+  </button>
 
     &nbsp;&nbsp;&nbsp;
 
-    <ion-button shape="square" (click)="navegar('/login')" color="tertiary">
+    <button class="shadow__btn" size="small" shape="round" 
+      (click)="navegar('/login')">
       <ion-icon slot="start" name="log-out"></ion-icon>
       Salir
-    </ion-button>
+    </button>
 
 
   </ion-toolbar>
