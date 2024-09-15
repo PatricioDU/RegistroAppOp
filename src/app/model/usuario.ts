@@ -51,10 +51,23 @@ export class Usuario extends Persona {
     return Usuario.getListaUsuarios().find(
       usu => usu.cuenta === cuenta && usu.password === password);
   }
+  public static buscarCorreoValido(correo: string): Usuario | undefined {
+    return Usuario.getListaUsuarios().find(usu => usu.correo === correo);
+  }
 
   public validarCuenta(): string {
     if (this.cuenta.trim() === '') {
       return 'Para ingresar al sistema debe seleccionar una cuenta.';
+    }
+    return '';
+  }
+  public validarCorreo(): string {
+    if (this.correo.trim() === '') {
+      return 'Para recuperar su contraseña necesita ingresar su correo.';
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(this.correo)) {
+      return 'El correo electrónico no es válido.';
     }
     return '';
   }
@@ -73,6 +86,7 @@ export class Usuario extends Persona {
     }
     return '';
   }
+  
 
   public validarUsuario(): string {
     let error = this.validarCuenta();
@@ -81,6 +95,13 @@ export class Usuario extends Persona {
     if (error) return error;
     const usu = Usuario.buscarUsuarioValido(this.cuenta, this.password);
     if (!usu) return 'Las credenciales del usuario son incorrectas.';
+    return '';
+  }
+  public Correo(): string {
+    let error = this.validarCorreo();
+    if (error) return error;
+    const usu = Usuario.buscarCorreoValido(this.correo);
+    if (!usu) return 'El correo electrónico no está asociado con ningún usuario.';
     return '';
   }
 

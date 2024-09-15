@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
+import { Usuario } from 'src/app/model/usuario';
 
 @Component({
   selector: 'app-correo',
@@ -7,9 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CorreoPage implements OnInit {
 
-  constructor() { }
+  public usuario: Usuario;
+
+  constructor(
+      private router: Router
+    , private activatedRoute: ActivatedRoute
+    , private toastController: ToastController) 
+  {
+    this.usuario = new Usuario();
+    this.usuario.correo = 'atorres@duocuc.cl';
+  }
 
   ngOnInit() {
+  }
+  ingresar() {
+    const error = this.usuario.Correo();
+    if(error) {
+      this.mostrarMensajeEmergente(error);
+      return;
+    } 
+    this.usuario.navegarEnviandousuario(this.router, '/pregunta');
+  }
+
+  async mostrarMensajeEmergente(mensaje: string, duracion?: number) {
+    const toast = await this.toastController.create({
+        message: mensaje,
+        duration: duracion? duracion: 2000
+      });
+    toast.present();
   }
 
 }

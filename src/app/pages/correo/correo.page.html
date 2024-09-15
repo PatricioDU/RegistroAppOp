@@ -9,6 +9,7 @@
             <ion-card-subtitle>Paso 1:Ingresa tu correo</ion-card-subtitle>
           </ion-card-header>
           <ion-input
+          [(ngModel)]="usuario.correo"
             type="email"
             fill="solid"
             label="Email"
@@ -20,7 +21,7 @@
           ></ion-input>
         </ion-card-content>
         <div>
-          <ion-button size="default">Recuperar Contraseña</ion-button>
+          <ion-button size="default" (click)="ingresar()">Recuperar Contraseña</ion-button>
         </div>
       </ion-card>
       <ion-card-content>
