@@ -18,7 +18,6 @@ export class CorreoPage implements OnInit {
     , private toastController: ToastController) 
   {
     this.usuario = new Usuario();
-    this.usuario.correo = 'atorres@duocuc.cl';
   }
 
   ngOnInit() {
