@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="black">
+  <ion-toolbar class="toolbar-superior">
     <ion-title #titulo class="font-size-18 ion-text-center">
       Sistema de Asistencia DUOC
     </ion-title>
@@ -69,9 +69,9 @@
   </div>
 </div>
 <ion-footer>
-  <ion-toolbar color="black" class="ion-padding-horizontal ion-padding-top ion-padding-bottom">
+  <ion-toolbar color="primary" class="ion-padding-horizontal ion-padding-top ion-padding-bottom">
 
-    <button class="shadow__btn"  size="small" shape="round" 
+    <button   size="small" shape="round" 
               (click)="navegar('/misdatos')"  >
               <ion-icon slot="start" name="person"></ion-icon>
                 Mis Datos 
@@ -79,7 +79,7 @@
 
     &nbsp;&nbsp;&nbsp;
     
-    <button class="shadow__btn" size="small" shape="round" 
+    <button  size="small" shape="round" 
     (click)="navegar('/inicio')"  >
       <ion-icon slot="start" name="home"></ion-icon>
     Inicio
@@ -87,7 +87,7 @@
 
     &nbsp;&nbsp;&nbsp;
 
-    <button class="shadow__btn" size="small" shape="round" 
+    <button  size="small" shape="round" 
     (click)="navegar('/leerqr')">
       <ion-icon slot="start" name="qr-code"></ion-icon>
     Mis Clases
@@ -95,7 +95,7 @@
 
     &nbsp;&nbsp;&nbsp;
 
-    <button class="shadow__btn" size="small" shape="round" 
+    <button  size="small" shape="round" 
       (click)="navegar('/login')">
       <ion-icon slot="start" name="log-out"></ion-icon>
       Salir
