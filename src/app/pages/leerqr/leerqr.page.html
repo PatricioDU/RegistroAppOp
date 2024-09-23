@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="black">
+  <ion-toolbar class="toolbar-superior">
     <ion-title #titulo class="font-size-18 ion-text-center">
       Sistema de Asistencia DUOC
     </ion-title>
@@ -42,37 +42,37 @@
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar color="black" class="ion-padding-horizontal ion-padding-top ion-padding-bottom">
+  <ion-toolbar class="ion-padding-horizontal ion-padding-top ion-padding-bottom toolbar-inferior">
 
-    <button class="shadow__btn"  size="small" shape="round" 
+    <ion-button   size="small" shape="round" 
               (click)="navegar('/misdatos')"  >
               <ion-icon slot="start" name="person"></ion-icon>
                 Mis Datos 
-              </button>  
+              </ion-button>  
 
     &nbsp;&nbsp;&nbsp;
     
-    <button class="shadow__btn" size="small" shape="round" 
-    (click)="navegar('/inicio')"  >
-      <ion-icon slot="start" name="home"></ion-icon>
-    Inicio
-  </button>
+      <ion-button  size="small" shape="round" 
+      (click)="navegar('/inicio')"  >
+        <ion-icon slot="start" name="home"></ion-icon>
+      Inicio
+    </ion-button>
 
     &nbsp;&nbsp;&nbsp;
 
-    <button class="shadow__btn" size="small" shape="round" 
-    (click)="navegar('/leerqr')">
-      <ion-icon slot="start" name="qr-code"></ion-icon>
-    Mis Clases
-  </button>
+      <ion-button  size="small" shape="round" 
+      (click)="navegar('/leerqr')">
+        <ion-icon slot="start" name="qr-code"></ion-icon>
+      Mis Clases
+    </ion-button>
 
     &nbsp;&nbsp;&nbsp;
 
-    <button class="shadow__btn" size="small" shape="round" 
+      <ion-button  size="small" shape="round" 
       (click)="navegar('/login')">
       <ion-icon slot="start" name="log-out"></ion-icon>
       Salir
-    </button>
+    </ion-button>
 
 
   </ion-toolbar>

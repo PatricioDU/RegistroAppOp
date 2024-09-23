@@ -305,6 +305,8 @@ export class InicioPage implements AfterViewInit {
 
   
 
+  
+
   asignado(texto: string) {
     if (texto.trim() !== '') {
       return texto;
@@ -355,5 +357,19 @@ export class InicioPage implements AfterViewInit {
   }
 
 
+actualizarDatos() {
+  // Verificamos si los campos están completos
+  if (!this.usuario.nombre.trim() || !this.usuario.apellido.trim()) {
+    this.mostrarMensajeAlerta('Por favor, completa los campos de Nombre y Apellido.');
+    return;
+  }
+
+  // Actualizamos localmente los datos del usuario (ejemplo)
+  this.mostrarMensajeAlerta('Datos actualizados correctamente.');
+  // Aquí podrías agregar la lógica adicional que necesites, como almacenar en LocalStorage
+}
 }
 
+function actualizarDatos() {
+throw new Error('Function not implemented.');
+}

@@ -18,3 +18,5 @@ import { LeerqrPage } from './leerqr.page';
   declarations: [LeerqrPage]
 })
 export class LeerqrPageModule {}
+
+
