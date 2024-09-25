@@ -1,4 +1,12 @@
-<ion-content [fullscreen]="true">
+<ion-header>
+  <ion-toolbar color="warning" class="toolbar-superior">
+    <ion-title #titulo class="font-size-18 ion-text-center">
+      
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="center-container">
   <div class="center-container">
 
     <ion-card class="ion-text-center">
@@ -27,7 +35,7 @@
         </ion-item>
 
         <div class="ion-margin-top">
-          <ion-button shape="round" size="small" (click)="ingresar()">
+          <ion-button color="warning" shape="round" size="small" (click)="ingresar()">
             Ingresar
           </ion-button>
         </div>    
@@ -37,4 +45,5 @@
    <div class="ion-text-center">
         <a routerLink="/correo">Recuperar Contraseña</a>
     </div>
+
 </ion-content>

@@ -5,6 +5,10 @@ ion-content{
   --padding-start: 20px;
 }
 
+ion-toolbar{
+  background-color: var(--ion-color-warning);
+}
+
 // .center-container {
 //   display: flex;
 //   justify-content: center; /* Centra horizontalmente */
