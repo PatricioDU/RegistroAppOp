@@ -292,7 +292,7 @@ export class InicioPage implements AfterViewInit {
       .create()
       .addElement(this.page.nativeElement)
       .iterations(1)
-      .duration(1500)
+      .duration(2500)
       .keyframes([
         { offset: 0, transform: 'translateY(0)', opacity: '1' },  
         { offset: 0.3, transform: 'translateY(-20px)', opacity: '0.5' },  
@@ -373,3 +373,5 @@ actualizarDatos() {
 function actualizarDatos() {
 throw new Error('Function not implemented.');
 }
+
+

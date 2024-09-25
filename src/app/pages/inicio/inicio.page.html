@@ -10,7 +10,7 @@
   <div class="spinner">
     <span class="spinner-text">Duoc UC</span>
   </div>
-  <div class="book" >
+  <div class="book">
     <ion-content [fullscreen]="true" #page class="ion-padding-horizontal">
 
       <ion-toolbar class="ion-padding-top">
@@ -72,12 +72,23 @@
         <ion-input [(ngModel)]="usuario.correo" placeholder="Ingrese su correo"></ion-input>
       </ion-item>
 
+      <ion-item #itemContraseña>
+        <ion-label class="font-size-16">Contraseña</ion-label>
+        <ion-input [(ngModel)]="usuario.password" placeholder="Ingrese su contraseña"></ion-input>
+      </ion-item>
+
+      <ion-item #itemConfirmarContraseña>
+        <ion-label class="font-size-16">Confirmar Contraseña</ion-label>
+        <ion-input [(ngModel)]="usuario.password" placeholder="Confirme su contraseña"></ion-input>
+      </ion-item>
+
       <ion-toolbar>
         <ion-button expand="full" shape="round" (click)="actualizarDatos()">
           <ion-icon slot="start" name="refresh"></ion-icon>
           Actualizar Datos
         </ion-button>
       </ion-toolbar>
+      
 
 
       

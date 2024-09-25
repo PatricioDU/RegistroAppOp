@@ -20,6 +20,7 @@ export class LeerqrPage implements OnInit {
   public escaneando = false;
   public datosQR: string = '';
   animationController: any;
+  
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router) { 
     this.usuario = new Usuario();
