@@ -26,6 +26,7 @@ export class CorreoPage implements OnInit {
     const error = this.usuario.Correo();
     if(error) {
       this.mostrarMensajeEmergente(error);
+      this.usuario.navegarEnviandousuario(this.router, '/incorrecto');
       return;
     } 
     this.usuario.navegarEnviandousuario(this.router, '/pregunta');
