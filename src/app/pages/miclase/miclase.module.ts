@@ -4,17 +4,19 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { MiclasePageRoutingModule } from './miclase-routing.module';
+import { miclasePageRoutingModule } from './miclase-routing.module';
 
-import { MiclasePage } from './miclase.page';
+import { miclasePage } from './miclase.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MiclasePageRoutingModule
+    miclasePageRoutingModule
   ],
-  declarations: [MiclasePage]
+  declarations: [miclasePage]
 })
-export class MiclasePageModule {}
+export class miclasePageModule {}
+
+

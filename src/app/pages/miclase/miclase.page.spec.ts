@@ -1,15 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MiclasePage } from './miclase.page';
+import { miclasePage } from './miclase.page';
 
-describe('MiclasePage', () => {
-  let component: MiclasePage;
-  let fixture: ComponentFixture<MiclasePage>;
+describe('miclasePage', () => {
+  let component: miclasePage;
+  let fixture: ComponentFixture<miclasePage>;
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(MiclasePage);
+  beforeEach(async(() => {
+    fixture = TestBed.createComponent(miclasePage);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();

@@ -12,15 +12,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'inicio',
-    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
-  },
-  {
-    path: 'leerqr',
-    loadChildren: () => import('./pages/leerqr/leerqr.module').then( m => m.LeerqrPageModule)
-  },
-  {
-    path: 'misdatos',loadChildren: () => import('./pages/misdatos/misdatos.module').then(m => m.MisdatosPageModule)
+    path: 'misdatos',loadChildren: () => import('./pages/misdatos/misdatos.module').then(m => m.misdatosPageModule)
     
   },
   {
@@ -29,7 +21,16 @@ const routes: Routes = [
   {
     path: 'pregunta',
     loadChildren: () => import('./pages/pregunta/pregunta.module').then( m => m.PreguntaPageModule)
+  },
+  {
+    path: 'miclase',
+    loadChildren: () => import('./pages/miclase/miclase.module').then( m => m.miclasePageModule)
+  },
+  {
+    path: 'inicio',
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
   }
+
 ];
 
 @NgModule({

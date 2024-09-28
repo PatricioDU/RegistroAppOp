@@ -1,12 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MisdatosPage } from './misdatos.page';
+import { IonicModule } from '@ionic/angular';
+import { misdatosPage } from './misdatos.page';
 
-describe('MisdatosPage', () => {
-  let component: MisdatosPage;
-  let fixture: ComponentFixture<MisdatosPage>;
+describe('misdatosPage', () => {
+  let component: misdatosPage;
+  let fixture: ComponentFixture<misdatosPage>;
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(MisdatosPage);
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [misdatosPage],
+      imports: [IonicModule.forRoot()]
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(misdatosPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
