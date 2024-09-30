@@ -24,11 +24,16 @@ export class CorreoPage implements OnInit {
   }
   ingresar() {
     const error = this.usuario.Correo();
+
     if(error) {
       this.mostrarMensajeEmergente(error);
       this.usuario.navegarEnviandousuario(this.router, '/incorrecto');
       return;
     } 
+
+    const encontrado = Usuario.buscarCorreoValido(this.usuario.correo);
+    this.usuario.cuenta = encontrado!.cuenta;
+    this.usuario.password = encontrado!.password;
     this.usuario.navegarEnviandousuario(this.router, '/pregunta');
   }
 
