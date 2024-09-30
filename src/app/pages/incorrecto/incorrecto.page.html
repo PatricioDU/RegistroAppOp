@@ -1,13 +1,18 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>incorrecto</ion-title>
+    <ion-title>
+      <img src="../../../assets/img/duocicon.png" alt="Duoc Icon" width="250">
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">incorrecto</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="ion-text-center">
+    <h1>Sistema de Asistencia DUOC</h1>
+    <img src="../../../assets/img/pulgar_abajo.avif" alt="Pulgar Abajo">
+    <p>¡Lo sentimos pero los datos ingresados no son correctos!</p>
+    <button ion-button class="boton-largo" (click)="goToLogin()">
+      Volver al inicio
+    </button>
+  </div>
 </ion-content>
