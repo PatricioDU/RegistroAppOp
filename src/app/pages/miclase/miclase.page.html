@@ -27,19 +27,56 @@
     <video #video [hidden]="!escaneando" width="100%"></video>
     <canvas #canvas hidden></canvas>
   
-    <ion-card>
+    <ion-item *ngIf="datosQR">
       <ion-card-header>
         <ion-card-title>Los datos del Código QR son los siguientes:</ion-card-title>
       </ion-card-header>
-      <ion-card-content class="borde">
-        <h2 *ngIf="datosQR">
-          {{ datosQR }}
-        </h2>
-        <h2 *ngIf="!datosQR">
-          Sin información
-        </h2>
-      </ion-card-content>
-    </ion-card>
+      <table>
+        <tbody>
+          <tr>
+            <td class="font-size-16">Bloque inicio</td>
+            <td class="font-size-16">{{ asistencia!.bloqueInicio }}</td>
+          </tr>
+          <tr>
+            <td class="font-size-16">Bloque Termino</td>
+            <td class="font-size-16">{{ asistencia!.bloqueTermino }}</td>
+          </tr>
+          <tr>
+            <td class="font-size-16">Dia</td>
+            <td class="font-size-16">{{ asistencia!.dia }}</td>
+          </tr>
+          <tr>
+            <td>Hora Inicio</td>
+            <td>{{ asistencia!.horaInicio }}</td>
+          </tr>
+          <tr>
+            <td>Hora Fin</td>
+            <td>{{ asistencia!.horaFin }}</td>
+          </tr>
+          <tr>
+            <td>ID Asignatura</td>
+            <td>{{ asistencia!.idAsignatura }}</td>
+          </tr>
+          <tr>
+            <td>Nombre Asignatura</td>
+            <td>{{ asistencia!.nombreAsignatura }}</td>
+          </tr>
+          <tr>
+            <td>Nombre Profesor</td>
+            <td>{{ asistencia!.nombreProfesor }}</td>
+          </tr>
+          <tr>
+            <td>Sección</td>
+            <td>{{ asistencia!.seccion }}</td>
+          </tr>
+          <tr>
+            <td>Sede</td>
+            <td>{{ asistencia!.sede }}</td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </ion-item>
     
   <!-- </div> -->
 

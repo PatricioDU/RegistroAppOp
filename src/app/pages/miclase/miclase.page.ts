@@ -1,8 +1,11 @@
+
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
-import { Asistencia } from 'src/app/model/asistencia';
-import { Usuario } from 'src/app/model/usuario';
+import { ActivatedRoute, Router } from '@angular/router';
 import jsQR, { QRCode } from 'jsqr';
+import { Asistencia } from 'src/app/model/asistencia';
+import { NivelEducacional } from 'src/app/model/nivel-educacional';
+import { Usuario } from 'src/app/model/usuario';
+
 
 @Component({
   selector: 'app-miclase',
@@ -13,21 +16,43 @@ export class miclasePage implements OnInit {
 
   @ViewChild('video') private video!: ElementRef;
   @ViewChild('canvas') private canvas!: ElementRef;
-  @ViewChild('titulo', { read: ElementRef }) itemTitulo!: ElementRef;
 
+  public asistencia: Asistencia | undefined = undefined;
   public usuario: Usuario;
-  public asistencia: Asistencia = new Asistencia();
   public escaneando = false;
   public datosQR: string = '';
-  animationController: any;
-  
+  public listaNivelesEducacionales = NivelEducacional.getNivelesEducacionales();
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) { 
+
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+
+  ){
     this.usuario = new Usuario();
-    this.usuario.recibirUsuario(activatedRoute, router);
+    this.usuario.recibirUsuario(this.activatedRoute, this.router);
   }
 
   ngOnInit() {
+    this.comenzarEscaneoQR();
+  }
+
+  public simularCapturaQR() {
+    this.mostrarDatosQROrdenados(`
+      {
+        "sede": "Alonso Ovalle",
+        "idAsignatura": "PGY4121",
+        "seccion": "001D",
+        "nombreAsignatura": "Aplicaciones Móviles",
+        "nombreProfesor": "Cristián Gómez Vega",
+        "dia": "2022-08-09",
+        "bloqueInicio": 7,
+        "bloqueTermino": 9,
+        "horaInicio": "13:00",
+        "horaFin": "15:15"
+      }
+    `);
   }
 
   public async comenzarEscaneoQR() {
@@ -50,12 +75,13 @@ export class miclasePage implements OnInit {
     }
   }
 
+
   public obtenerDatosQR(): boolean {
     const w: number = this.video.nativeElement.videoWidth;
     const h: number = this.video.nativeElement.videoHeight;
     this.canvas.nativeElement.width = w;
     this.canvas.nativeElement.height = h;
-    const context: CanvasRenderingContext2D = this.canvas.nativeElement.getContext('2d');
+    const context: CanvasRenderingContext2D = this.canvas.nativeElement.getContext('2d', { willReadFrequently: true });
     context.drawImage(this.video.nativeElement, 0, 0, w, h);
     const img: ImageData = context.getImageData(0, 0, w, h);
     let qrCode: QRCode | null = jsQR(img.data, w, h, { inversionAttempts: 'dontInvert' });
@@ -68,10 +94,11 @@ export class miclasePage implements OnInit {
     }
     return false;
   }
-
+  
   public mostrarDatosQROrdenados(datosQR: string): void {
     this.datosQR = datosQR;
-    const objetoDatosQR = JSON.parse(datosQR);
+    this.usuario.asistencia = JSON.parse(datosQR);
+    this.usuario.navegarEnviandoUsuario(this.router, 'miclase');
   }
 
   public detenerEscaneoQR(): void {
@@ -79,19 +106,18 @@ export class miclasePage implements OnInit {
   }
 
   navegar(pagina: string) {
-    this.usuario.navegarEnviandousuario(this.router, pagina);
+    this.usuario.navegarEnviandoUsuario(this.router, pagina);
   }
 
 
 
 
-  animarTituloIzqDer() {
-    this.animationController
-    .create()
-    .addElement(this.itemTitulo.nativeElement)
-    .iterations(Infinity) // Repite la animación infinitamente
-    .duration(5000) // Duración de la animación en milisegundos (2 segundos)
-    .fromTo('opacity', 0, 1) // Cambia la opacidad de 0 (invisible) a 1 (visible)
-    .play();
-  }
+
+
+
+
+
+
+
+
 }
