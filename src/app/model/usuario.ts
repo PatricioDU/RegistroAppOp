@@ -58,10 +58,19 @@ export class Usuario extends Persona {
   public static buscarCorreoValido(correo: string): Usuario | undefined {
     return Usuario.getListaUsuarios().find(usu => usu.correo === correo);
   }
+  public static buscarRespuestaValida(respuesta: string): Usuario | undefined {
+    return Usuario.getListaUsuarios().find(usu => usu.respuestaSecreta === respuesta);
+  }
 
   public validarCuenta(): string {
     if (this.cuenta.trim() === '') {
       return 'Para ingresar al sistema debe seleccionar una cuenta.';
+    }
+    return '';
+  }
+  public validarRespuesta(): string {
+    if (this.respuestaSecreta.trim() === '') {
+      return 'Para recuperar su contraseña necesita ingresar su respuesta secreta.';
     }
     return '';
   }
@@ -99,6 +108,13 @@ export class Usuario extends Persona {
     if (error) return error;
     const usu = Usuario.buscarUsuarioValido(this.cuenta, this.password);
     if (!usu) return 'Las credenciales del usuario son incorrectas.';
+    return '';
+  }
+  public validarRespuestaSecreta(): string {
+    let error = this.validarRespuesta();
+    if (error) return error;
+    const usu = Usuario.buscarRespuestaValida(this.respuestaSecreta);
+    if (!usu) return 'La respuesta secreta es incorrecta.';
     return '';
   }
   public Correo(): string {

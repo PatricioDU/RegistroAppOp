@@ -11,12 +11,14 @@
           </ion-card-header>
           <ion-item>
             <ion-input
-                label={{usuario.preguntaSecreta}} labelPlacement="floating"
-                placeholder="Ej: Tom"></ion-input>
+            [(ngModel)]="usuario.respuestaSecreta"
+            label={{usuario.preguntaSecreta}} 
+            labelPlacement="floating"
+            ></ion-input>
           </ion-item>
         </ion-card-content>
         <div>
-          <ion-button color="warning" size="default">Recuperar Contraseña</ion-button>
+          <ion-button color="warning" size="default" (click)="ingresar()">Recuperar Contraseña</ion-button>
         </div>
       </ion-card>
       <ion-card-content>
