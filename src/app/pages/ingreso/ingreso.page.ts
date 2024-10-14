@@ -4,11 +4,11 @@ import { ToastController } from '@ionic/angular';
 import { Usuario } from 'src/app/model/usuario';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-ingreso',
+  templateUrl: './ingreso.page.html',
+  styleUrls: ['./ingreso.page.scss'],
 })
-export class LoginPage {
+export class ingresoPage {
 
   public usuario: Usuario;
 
